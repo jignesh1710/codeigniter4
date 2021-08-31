@@ -17,9 +17,14 @@ class Hello extends BaseController
 		// $model=new UserModel();
 		echo view("insert");
 	}
+	public function fpdf()
+	{
+		
+		echo view("fpdf");
+	}
 	public function insertcode()
 	{
-		helper(['form', 'url']);
+		helper('form', 'url');
 		$validation =  \Config\Services::validation();
 		$rules=
 			[

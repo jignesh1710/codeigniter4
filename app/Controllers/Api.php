@@ -14,7 +14,7 @@ class Api extends ResourceController
       $data['employees'] = $model->orderBy('id', 'DESC')->findAll();
       return $this->respond($data);
     }
-    public function insert()
+    public function create()
 	{
          $fname=$this->request->getvar("fname");
 		$lname=$this->request->getvar("lname");
@@ -30,7 +30,7 @@ class Api extends ResourceController
 		$model->insert($data);
         $response = [
             'status'   => 201,
-            'dtaa'    => $data,
+            'data'    => $data,
             'messages' => [
                 'success' => 'Employee created successfully'
             ]

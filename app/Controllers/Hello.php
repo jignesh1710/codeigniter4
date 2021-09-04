@@ -12,6 +12,29 @@ class Hello extends BaseController
 		print_r("<pre>");
         print_r($model->findAll());
 	}
+	public function email()
+	{
+		$email = \Config\Services::email();
+
+$email->setFrom('jigsmistry10@gmail.com', 'jignesh mistry');
+$email->setTo('jigsmistry1991@gmail.com');
+$email->setCC('another@another-example.com');
+$email->setBCC('them@their-example.com');
+
+$email->setSubject('Email Test');
+$email->setMessage('Hello I M Jignesh How Are U?');
+
+// $email->send();
+
+		if($email->send())
+		{
+			echo "Email Send";
+		}
+		else
+		{
+			echo "Email Not Send";
+		}
+	}
 	public function insert()
 	{
 		// $model=new UserModel();
